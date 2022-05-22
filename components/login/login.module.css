@@ -1,0 +1,32 @@
+@font-face {
+    font-family: 'p30';
+    font-style: bold;
+    font-weight: 700;
+    src: url(../../public/assets/css/demo_1/fonts/p30.eot);
+    src: url(../../public/assets/css/demo_1/fonts/p30.eot?#iefix) format('embedded-opentype'),
+      url(../../public/assets/css/demo_1/fonts/p30.woff) format('woff'),
+      url(../../public/assets/css/demo_1/fonts/p30.ttf) format('truetype');
+  }
+  
+.container{
+    font-family: p30!important;
+}
+.title h1{
+    font-family: p30!important;
+    font-size: 20px;
+}
+.title h6{
+    font-family: p30!important;
+    margin-bottom: 25px;
+}
+.phone_number::placeholder{
+    font-family: p30!important;
+}
+.phone_number{
+    border-right: 1px solid #cfd5db!important;
+    border-radius: 6px!important;
+}
+.container button{
+    font-family: p30!important;
+}
+  
