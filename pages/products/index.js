@@ -1,5 +1,6 @@
 import React from 'react'
 import Head from 'next/head'
+import * as cookie from 'cookie'
 
 //import modules
 import axios from 'axios'

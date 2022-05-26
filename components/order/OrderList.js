@@ -23,7 +23,7 @@ const OrderList = ({ ordersList }) => {
 
   const productDeleteHandler = (id, order_id) => {
     if (confirm(`آیا مطمعن هستید که سفارش (${order_id}) پاک شود`)) {
-      axios.delete(`${MainLink}/products/rd/${id}/`);
+      axios.delete(`${MainLink}/order/rd/${id}/`);
       toast.success("سفارش با موفقیت حذف شد");
       setTimeout(() => {
         refreshData();

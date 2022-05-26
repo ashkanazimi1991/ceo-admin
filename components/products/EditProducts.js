@@ -290,7 +290,7 @@ const EditProducts = ({ id, selectedProduct, categoriesList }) => {
                 className="form-control form-control-lg"
                 id="exampleInputBuyPrice"
                 placeholder="قیمت خرید"
-                value={data.price}
+                value={data.buyPrice}
                 onChange={setDataValue}
               />
             </div>
@@ -302,7 +302,7 @@ const EditProducts = ({ id, selectedProduct, categoriesList }) => {
                 className="form-control form-control-lg"
                 id="exampleInputSellPrice"
                 placeholder="قیمت فروش"
-                value={data.buyPrice}
+                value={data.sellPrice}
                 onChange={setDataValue}
               />
             </div>

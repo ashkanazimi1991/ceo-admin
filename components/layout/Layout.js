@@ -1,9 +1,19 @@
 //import modules
-import React from "react";
+import React,{useContext} from "react";
 import Head from "next/head";
 import Link from "next/link";
+import { removeCookies } from 'cookies-next';
+import { useRouter } from "next/router";
+import { AuthContext } from "../context/AuthContextProvider";
 
 const Layout = ({ children }) => {
+  const router = useRouter();
+  const data = useContext(AuthContext);
+  const LogOutHandler = () => {
+    localStorage.removeItem('userData');
+    removeCookies('token');
+    router.push('/login')
+  }
   return (
     <>
       <Head>
@@ -20,6 +30,7 @@ const Layout = ({ children }) => {
       </Head>
 
       <div className="container-scroller">
+        {console.log(data)}
         <nav className="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
           <div className="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
             <a className="navbar-brand brand-logo" href="index.html">
@@ -56,13 +67,13 @@ const Layout = ({ children }) => {
                       alt="Profile image"
                     />
                     <p className="mb-1 mt-3 font-weight-semibold">
-                      فرحان احمدی
+                      {`${data.first_name}  ${data.last_name}`}
                     </p>
                     <p className="font-weight-light text-muted mb-0">
-                      farhan@gmail.com
+                      {data.email}
                     </p>
                   </div>
-                  <a className="dropdown-item">
+                  <a style={{cursor: 'pointer'}} onClick={LogOutHandler} className="dropdown-item">
                     خروج<i className="dropdown-item-icon ti-power-off"></i>
                   </a>
                 </div>
@@ -91,7 +102,7 @@ const Layout = ({ children }) => {
                     <div className="dot-indicator bg-success"></div>
                   </div>
                   <div className="text-wrapper">
-                    <p className="profile-name">فرحان احمدی</p>
+                    <p className="profile-name">{`${data.first_name}  ${data.last_name}`}</p>
                     <p className="designation">مدیریت سایت</p>
                   </div>
                 </a>
@@ -236,7 +247,7 @@ const Layout = ({ children }) => {
                       </Link>
                     </li>
                     <li className="nav-item">
-                      <Link href={"/categories"}>
+                      <Link href={"/categories/add_category/"}>
                         <a
                           className="nav-link"
                           href="pages/ui-features/dropdowns.html"
