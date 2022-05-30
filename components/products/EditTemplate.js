@@ -67,7 +67,7 @@ const EditTemplate = ({ id , templateList }) => {
     data.firstImg && photo && formData.append("image", photo, photo.name);
     formData.append("title", data.name);
     formData.append("body", data.body);
-    fetch(`${MainLink}/project/1`, {
+    fetch(`${MainLink}/project/${id}/`, {
       method: "PUT",
       body: formData,
     }).then((response) => {
@@ -75,7 +75,7 @@ const EditTemplate = ({ id , templateList }) => {
         response.json().then((json) => {
           toast.success("محصول با موفقیت ساخته شد");
           setTimeout(() => {
-            redirect.push("/products");
+            redirect.push("/products/templateList");
           }, 5000);
         });
       } else {
